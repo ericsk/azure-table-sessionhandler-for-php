@@ -73,6 +73,9 @@ class WindowsAzureTableSessionHandler implements SessionHandlerInterface {
     // set up the table and partition names.
     $this->_sessionContainer = $sessionContainer;
     $this->_sessionContainerPartition = $sessionContainerPartition;
+	
+	// register the session shutdown function.
+	register_shutdown_function('session_write_close');
   }
 
   /**
